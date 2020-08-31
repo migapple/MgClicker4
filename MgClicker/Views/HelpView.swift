@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HelpView: View {
+    @Environment(\.presentationMode) private var presentationMode
+    
     var body: some View {
         VStack {
             Text("Le but du jeux est d'appuyer le plus vite possible sur le bouton")
@@ -22,6 +24,9 @@ struct HelpView: View {
             
             Text("N'oubliez pas d'entrer votre pseudo pour entrer dans le hall of fames.")
                 .padding()
+        }
+        .onTapGesture {
+            self.presentationMode.wrappedValue.dismiss()
         }
     }
 }

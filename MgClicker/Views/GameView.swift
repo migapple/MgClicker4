@@ -13,11 +13,15 @@ struct GameView: View {
     @State private var gameInProgress = false
     @State private var showingAlert = false
     @State private var showingHelp = false
+    @State private var entreeNom = false
     
     @StateObject var gameManager = GameManager()
     
+    var tempsDuJeux = 10
+    
     @State private var timeRemaining = 10
     @State var timer: Timer? = nil
+    
     
     // Va lire bestGame de gameManager
     var isOnFire: Bool {
@@ -28,11 +32,23 @@ struct GameView: View {
     var body: some View {
         NavigationView {
             VStack {
-                EditableTextView(title: "Entrez votre pseudo", editedText: $nickname)
+                HStack {
+                    if entreeNom {
+                        EditableTextView(title: "Entrez votre pseudo", editedText: $nickname)
+                    }
+                    
+                    Spacer()
+                    Image(systemName: "pencil.circle")
+                        .padding()
+                        .onTapGesture(count: /*@START_MENU_TOKEN@*/1/*@END_MENU_TOKEN@*/, perform: {
+                            entreeNom.toggle()
+                        })
+                }
                 
                 HStack {
                     if isOnFire {
-                        Image(systemName: "flame")
+                        Image(systemName: "flag.circle")
+                            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
                     }
                     
                     Text("Score: \(score)")
@@ -53,13 +69,16 @@ struct GameView: View {
                 
                 if gameManager.resultList.count > 0 {
                     HStack {
-                        Image(systemName: "star")
+                        Image(systemName: "star.fill")
+                            .foregroundColor(.yellow)
                         Text("All of fame")
-                        Image(systemName: "star")
+                        Image(systemName: "star.fill")
+                            .foregroundColor(.yellow)
                     }
                     .padding()
                 }
                 
+                // Affichage de la liste de résultats
                 if !gameInProgress {
                     ResultListView(resultList: gameManager.resultList)
                 }
@@ -67,7 +86,8 @@ struct GameView: View {
                 // Affichage temps
                 if gameInProgress {
                     
-                    CountdownView(timeRemaining: 10 - timeRemaining)
+                    // Décompte avec progress View
+                    CountdownView(timeRemaining: tempsDuJeux - timeRemaining)
                         .padding()
                     
                     Text("Temps restant: \(timeRemaining) secondes")
@@ -83,6 +103,7 @@ struct GameView: View {
                 }
                 
                 // Fin du jeu
+                
                 
                 if !gameInProgress {
                     HStack {
@@ -115,7 +136,6 @@ struct GameView: View {
             .sheet(isPresented: $showingHelp, content: {
                 HelpView()
             })
-        
         }
     }
     
