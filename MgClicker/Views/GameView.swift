@@ -60,9 +60,16 @@ struct GameView: View {
                     .padding()
                 }
                 
-                ResultListView(resultList: gameManager.resultList)
+                if !gameInProgress {
+                    ResultListView(resultList: gameManager.resultList)
+                }
                 
+                // Affichage temps
                 if gameInProgress {
+                    
+                    CountdownView(timeRemaining: 10 - timeRemaining)
+                        .padding()
+                    
                     Text("Temps restant: \(timeRemaining) secondes")
                         .font(.headline)
                         .foregroundColor(.white)
@@ -154,6 +161,10 @@ struct GameView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView()
+        Group {
+            GameView()
+            GameView()
+                .preferredColorScheme(.dark)
+        }
     }
 }

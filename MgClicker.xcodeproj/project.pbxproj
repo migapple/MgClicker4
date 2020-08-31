@@ -10,6 +10,10 @@
 		5301387024F5168A00BC9659 /* EditableTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5301386F24F5168A00BC9659 /* EditableTextView.swift */; };
 		5301387324F523FC00BC9659 /* MyButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5301387224F523FC00BC9659 /* MyButtonStyle.swift */; };
 		534ECF0C24F540AC00CACF74 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534ECF0B24F540AC00CACF74 /* HelpView.swift */; };
+		53509DFF24FD0A88006CFE7C /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53509DFE24FD0A88006CFE7C /* ClockView.swift */; };
+		5393C4E624FCDA1F00580CA6 /* ProgressTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393C4E524FCDA1F00580CA6 /* ProgressTrackView.swift */; };
+		5393C4E824FCDB2D00580CA6 /* ProgressBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393C4E724FCDB2D00580CA6 /* ProgressBarView.swift */; };
+		5393C4EA24FCDDA800580CA6 /* CountdownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393C4E924FCDDA800580CA6 /* CountdownView.swift */; };
 		53CB6EC924F4001000DAF542 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53CB6EC824F4001000DAF542 /* GameManager.swift */; };
 		53EB113B24F3DBDF00D6A67F /* MgClickerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EB113A24F3DBDF00D6A67F /* MgClickerApp.swift */; };
 		53EB113D24F3DBDF00D6A67F /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EB113C24F3DBDF00D6A67F /* GameView.swift */; };
@@ -23,6 +27,10 @@
 		5301386F24F5168A00BC9659 /* EditableTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditableTextView.swift; sourceTree = "<group>"; };
 		5301387224F523FC00BC9659 /* MyButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButtonStyle.swift; sourceTree = "<group>"; };
 		534ECF0B24F540AC00CACF74 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		53509DFE24FD0A88006CFE7C /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
+		5393C4E524FCDA1F00580CA6 /* ProgressTrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTrackView.swift; sourceTree = "<group>"; };
+		5393C4E724FCDB2D00580CA6 /* ProgressBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBarView.swift; sourceTree = "<group>"; };
+		5393C4E924FCDDA800580CA6 /* CountdownView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownView.swift; sourceTree = "<group>"; };
 		53CB6EC824F4001000DAF542 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		53EB113724F3DBDF00D6A67F /* MgClicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MgClicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53EB113A24F3DBDF00D6A67F /* MgClickerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MgClickerApp.swift; sourceTree = "<group>"; };
@@ -98,6 +106,10 @@
 				53EB114B24F3F2FB00D6A67F /* ResultListView.swift */,
 				5301386F24F5168A00BC9659 /* EditableTextView.swift */,
 				534ECF0B24F540AC00CACF74 /* HelpView.swift */,
+				5393C4E524FCDA1F00580CA6 /* ProgressTrackView.swift */,
+				5393C4E724FCDB2D00580CA6 /* ProgressBarView.swift */,
+				5393C4E924FCDDA800580CA6 /* CountdownView.swift */,
+				53509DFE24FD0A88006CFE7C /* ClockView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -180,13 +192,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5393C4EA24FCDDA800580CA6 /* CountdownView.swift in Sources */,
+				53509DFF24FD0A88006CFE7C /* ClockView.swift in Sources */,
 				534ECF0C24F540AC00CACF74 /* HelpView.swift in Sources */,
 				53EB113D24F3DBDF00D6A67F /* GameView.swift in Sources */,
+				5393C4E624FCDA1F00580CA6 /* ProgressTrackView.swift in Sources */,
 				5301387324F523FC00BC9659 /* MyButtonStyle.swift in Sources */,
 				53CB6EC924F4001000DAF542 /* GameManager.swift in Sources */,
 				53EB114C24F3F2FB00D6A67F /* ResultListView.swift in Sources */,
 				5301387024F5168A00BC9659 /* EditableTextView.swift in Sources */,
 				53EB114A24F3E26D00D6A67F /* GameResult.swift in Sources */,
+				5393C4E824FCDB2D00580CA6 /* ProgressBarView.swift in Sources */,
 				53EB113B24F3DBDF00D6A67F /* MgClickerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
