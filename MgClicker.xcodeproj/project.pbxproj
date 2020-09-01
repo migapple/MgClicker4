@@ -11,6 +11,10 @@
 		5301387324F523FC00BC9659 /* MyButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5301387224F523FC00BC9659 /* MyButtonStyle.swift */; };
 		530356E224FD1BFC004F96D9 /* DebutDePartieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530356E124FD1BFC004F96D9 /* DebutDePartieView.swift */; };
 		530356E424FD26F5004F96D9 /* Joueur.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530356E324FD26F5004F96D9 /* Joueur.swift */; };
+		5315A7D824FE6B9A0079FDBF /* BandeauTempsRestant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315A7D724FE6B9A0079FDBF /* BandeauTempsRestant.swift */; };
+		5315A7DA24FE77EB0079FDBF /* EntreePseudo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315A7D924FE77EB0079FDBF /* EntreePseudo.swift */; };
+		5315A7DE24FE88110079FDBF /* AfficheScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315A7DD24FE88110079FDBF /* AfficheScore.swift */; };
+		5315A7E024FE8A650079FDBF /* OnCliqueSurPlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5315A7DF24FE8A650079FDBF /* OnCliqueSurPlus.swift */; };
 		534ECF0C24F540AC00CACF74 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534ECF0B24F540AC00CACF74 /* HelpView.swift */; };
 		53509DFF24FD0A88006CFE7C /* ClockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53509DFE24FD0A88006CFE7C /* ClockView.swift */; };
 		5393C4E624FCDA1F00580CA6 /* ProgressTrackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5393C4E524FCDA1F00580CA6 /* ProgressTrackView.swift */; };
@@ -30,6 +34,10 @@
 		5301387224F523FC00BC9659 /* MyButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButtonStyle.swift; sourceTree = "<group>"; };
 		530356E124FD1BFC004F96D9 /* DebutDePartieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebutDePartieView.swift; sourceTree = "<group>"; };
 		530356E324FD26F5004F96D9 /* Joueur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joueur.swift; sourceTree = "<group>"; };
+		5315A7D724FE6B9A0079FDBF /* BandeauTempsRestant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BandeauTempsRestant.swift; sourceTree = "<group>"; };
+		5315A7D924FE77EB0079FDBF /* EntreePseudo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntreePseudo.swift; sourceTree = "<group>"; };
+		5315A7DD24FE88110079FDBF /* AfficheScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfficheScore.swift; sourceTree = "<group>"; };
+		5315A7DF24FE8A650079FDBF /* OnCliqueSurPlus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnCliqueSurPlus.swift; sourceTree = "<group>"; };
 		534ECF0B24F540AC00CACF74 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		53509DFE24FD0A88006CFE7C /* ClockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockView.swift; sourceTree = "<group>"; };
 		5393C4E524FCDA1F00580CA6 /* ProgressTrackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTrackView.swift; sourceTree = "<group>"; };
@@ -107,6 +115,9 @@
 			isa = PBXGroup;
 			children = (
 				53EB113C24F3DBDF00D6A67F /* GameView.swift */,
+				5315A7DD24FE88110079FDBF /* AfficheScore.swift */,
+				5315A7D924FE77EB0079FDBF /* EntreePseudo.swift */,
+				5315A7D724FE6B9A0079FDBF /* BandeauTempsRestant.swift */,
 				53EB114B24F3F2FB00D6A67F /* ResultListView.swift */,
 				5301386F24F5168A00BC9659 /* EditableTextView.swift */,
 				534ECF0B24F540AC00CACF74 /* HelpView.swift */,
@@ -115,6 +126,7 @@
 				5393C4E924FCDDA800580CA6 /* CountdownView.swift */,
 				53509DFE24FD0A88006CFE7C /* ClockView.swift */,
 				530356E124FD1BFC004F96D9 /* DebutDePartieView.swift */,
+				5315A7DF24FE8A650079FDBF /* OnCliqueSurPlus.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -198,11 +210,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5315A7DA24FE77EB0079FDBF /* EntreePseudo.swift in Sources */,
 				5393C4EA24FCDDA800580CA6 /* CountdownView.swift in Sources */,
 				53509DFF24FD0A88006CFE7C /* ClockView.swift in Sources */,
 				530356E224FD1BFC004F96D9 /* DebutDePartieView.swift in Sources */,
 				534ECF0C24F540AC00CACF74 /* HelpView.swift in Sources */,
+				5315A7DE24FE88110079FDBF /* AfficheScore.swift in Sources */,
+				5315A7D824FE6B9A0079FDBF /* BandeauTempsRestant.swift in Sources */,
 				53EB113D24F3DBDF00D6A67F /* GameView.swift in Sources */,
+				5315A7E024FE8A650079FDBF /* OnCliqueSurPlus.swift in Sources */,
 				5393C4E624FCDA1F00580CA6 /* ProgressTrackView.swift in Sources */,
 				5301387324F523FC00BC9659 /* MyButtonStyle.swift in Sources */,
 				53CB6EC924F4001000DAF542 /* GameManager.swift in Sources */,

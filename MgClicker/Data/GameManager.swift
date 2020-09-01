@@ -19,7 +19,6 @@ class GameManager: ObservableObject {
     @Published var score = 0
     @Published var gameInProgress = false
     @Published var timeRemaining = 10
-//    @Published var nickname = ""
     
 //    @Published var bestScore = 0
 //    @Published var bestNickname = ""
