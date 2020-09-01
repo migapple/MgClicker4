@@ -9,29 +9,23 @@ import SwiftUI
 
 struct GameView: View {
     @AppStorage("nickname") var nickname = ""
-    @State private var score = 0
-    @State private var gameInProgress = false
-    @State private var showingAlert = false
     @State private var showingHelp = false
     @State private var entreeNom = false
     
     @StateObject var gameManager = GameManager()
-    
     var tempsDuJeux = 10
-    
-    @State private var timeRemaining = 10
-    @State var timer: Timer? = nil
-    
     
     // Va lire bestGame de gameManager
     var isOnFire: Bool {
         guard let bestcore = gameManager.bestGame?.score else { return false }
-        return score > bestcore
+        return gameManager.score > bestcore
     }
+    
     
     var body: some View {
         NavigationView {
             VStack {
+                // On saisi le Pseudo
                 HStack {
                     if entreeNom {
                         EditableTextView(title: "Entrez votre pseudo", editedText: $nickname)
@@ -45,23 +39,24 @@ struct GameView: View {
                         })
                 }
                 
+                // On affiche le score
                 HStack {
                     if isOnFire {
                         Image(systemName: "flag.circle")
                             .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
                     }
                     
-                    Text("Score: \(score)")
+                    Text("Score: \(gameManager.score)")
                         .padding()
                 }
                 .font(.system(.largeTitle))
                 
-                // Debut du jeu
-                if gameInProgress {
+                // On Clique sur le +
+                if gameManager.gameInProgress {
                     Image(systemName: "plus.square")
                         .font(.title)
                         .onTapGesture {
-                            userTouchedClickButton()
+                            gameManager.userTouchedClickButton()
                         }
                 }
                 
@@ -79,18 +74,17 @@ struct GameView: View {
                 }
                 
                 // Affichage de la liste de résultats
-                if !gameInProgress {
                     ResultListView(resultList: gameManager.resultList)
-                }
                 
                 // Affichage temps
-                if gameInProgress {
+                if gameManager.gameInProgress {
                     
                     // Décompte avec progress View
-                    CountdownView(timeRemaining: tempsDuJeux - timeRemaining)
+                    CountdownView(timeRemaining: tempsDuJeux - gameManager.timeRemaining)
                         .padding()
                     
-                    Text("Temps restant: \(timeRemaining) secondes")
+                    // Affichage temps restant bandeau noir
+                    Text("Temps restant: \(gameManager.timeRemaining) secondes")
                         .font(.headline)
                         .foregroundColor(.white)
                         .padding(.horizontal, 20)
@@ -101,29 +95,10 @@ struct GameView: View {
                                 .opacity(0.75)
                         )
                 }
+                // Boutons Nouvelle partie, clear score
                 
-                // Fin du jeu
-                
-                
-                if !gameInProgress {
-                    HStack {
-                        Button("Nouvelle partie") {
-                            if nickname == "" {
-                                showingAlert = true
-                            } else {
-                                userTouchedStartButton()
-                            }
-                        }.padding()
-                        .buttonStyle(MyButtonStyle())
-                        .alert(isPresented: $showingAlert, content: {
-                            Alert(title: Text("Erreur de saisie"), message: Text("Entrez un pseudo"), dismissButton: .default(Text("OK")))
-                        })
-                        
-                        Button("Clear Scores") {
-                            gameManager.clearScores()
-                        }.padding()
-                        .buttonStyle(MyButtonStyle())
-                    }
+                if !gameManager.gameInProgress {
+                    DebutDePartieView(nickname: nickname).environmentObject(gameManager)
                 }
             }
             .navigationBarTitle("Clicker")
@@ -138,53 +113,12 @@ struct GameView: View {
             })
         }
     }
-    
-    func clearScores() {
-        
-    }
-    
-    func userTouchedStartButton() {
-        score = 0
-        gameInProgress = true
-        startTimer()
-    }
-    
-    func userTouchedClickButton() {
-        if gameInProgress {
-            score += 1
-        }
-    }
-    
-    func startTimer() {
-        timer = Timer.scheduledTimer(withTimeInterval: 1,  repeats: true) {_ in
-            timeRemaining -= 1
-            
-            if timeRemaining == 0 {
-                stopTimer()
-                gameInProgress = false
-                gameDidFinish()
-                timeRemaining = 10
-            }
-        }
-    }
-    
-    func stopTimer() {
-        timer?.invalidate()
-        timer = nil
-    }
-    
-    func gameDidFinish() {
-        gameInProgress = false
-        gameManager.gameDidFinish(nickname: nickname, score: score)
-    }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
             GameView()
-            GameView()
-                .preferredColorScheme(.dark)
         }
     }
 }

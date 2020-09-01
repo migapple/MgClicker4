@@ -8,12 +8,23 @@
 import Foundation
 
 class GameManager: ObservableObject {
+//    var nickname: String = ""
+    
+//    init(nickname: String) {
+//        self.nickname = nickname
+//    }
+    
     @Published var resultList: [GameResult] = []
+    @Published var timer: Timer? = nil
+    @Published var score = 0
+    @Published var gameInProgress = false
+    @Published var timeRemaining = 10
+//    @Published var nickname = ""
+    
 //    @Published var bestScore = 0
 //    @Published var bestNickname = ""
     // Pas de Published sur une propriété calculée
     var bestGame: GameResult? { resultList.first }
-    
     
     func gameDidFinish(nickname: String, score: Int) {
 //        if score > bestScore {
@@ -34,4 +45,35 @@ class GameManager: ObservableObject {
     func clearScores() {
         resultList = []
     }
+    
+    func userTouchedStartButton(nickname: String) {
+        score = 0
+        self.gameInProgress = true
+        startTimer(nickname: nickname)
+    }
+    
+    func userTouchedClickButton() {
+        if gameInProgress {
+            score += 1
+        }
+    }
+    
+    func startTimer(nickname:String) {
+        timer = Timer.scheduledTimer(withTimeInterval: 1,  repeats: true) { [self]_ in
+            self.timeRemaining -= 1
+            
+            if self.timeRemaining == 0 {
+                self.stopTimer()
+                self.gameInProgress = false
+                self.gameDidFinish(nickname: nickname, score: self.score)
+                self.timeRemaining = 10
+            }
+        }
+    }
+    
+    func stopTimer() {
+        timer?.invalidate()
+        timer = nil
+    }
+    
 }
