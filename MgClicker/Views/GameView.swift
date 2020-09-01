@@ -35,6 +35,13 @@ struct GameView: View {
                     
                 Spacer()
                 
+                if !gameManager.gameInProgress {
+                    if gameManager.resultList.count == 0 {
+                        Image("HallOfFame")
+                            .padding()
+                    }
+                }
+                
                 // Affichage le Hall of fames
                 ResultListView(resultList: gameManager.resultList).environmentObject(gameManager)
                 

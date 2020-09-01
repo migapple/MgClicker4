@@ -43,6 +43,7 @@ class GameManager: ObservableObject {
     
     func clearScores() {
         resultList = []
+        self.score = 0
     }
     
     func userTouchedStartButton(nickname: String) {
